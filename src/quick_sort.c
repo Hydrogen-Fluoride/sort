@@ -30,9 +30,7 @@ void quick_sort(int A[], int n){
       j++;
     }
   }
-  for (i = 0; i < j - 1; i++) {
-    swap(A + i, A + i + 1);
-  }
+  swap(A, A + j - 1);
 
   quick_sort(A, j - 1);
   quick_sort(A + j, n - j);
