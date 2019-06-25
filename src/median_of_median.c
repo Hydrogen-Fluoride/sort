@@ -31,12 +31,19 @@ int quick_select(int A[], int n, int k) {
     return bubble(A, n, k);
   } else {
     int Aa[N];
-    for (int i = 0; i < n / 5; i++) {
+    for (i = 0; i < n / 5; i++) {
       Aa[i] = bubble(A + i * 5, 5, 2);
     }
     pivot = quick_select(Aa, n / 5, n / 10);
-    j = 0;
+    int pivotindex;
     for (i = 0; i < n; i++) {
+      if (A[i] == pivot) {
+        pivotindex = i;
+        break;
+      }
+    }
+    swap(A, A + i);
+    for (i = j = 1; i < n; i++) {
       if (A[i] <= pivot) {
         swap(A + i, A + j);
         j++;
@@ -47,7 +54,7 @@ int quick_select(int A[], int n, int k) {
     } else if (j < k + 1) {
       return quick_select(A + j, n - j, k - j);
     } else {
-      return quick_select(A, j, k);
+      return quick_select(A + 1, j - 1, k);
     }
   }
 }
