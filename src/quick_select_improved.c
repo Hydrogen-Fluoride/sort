@@ -30,8 +30,8 @@ int quick_select(int A[], int n, int k){
       j++;
     } else if (A[i] == pivot) {
       swap(A + i, A + j);
+      swap(A + j, A + count);
       j++;
-      swap(A + j - 1, A + count);
       count++;
     }
   }
