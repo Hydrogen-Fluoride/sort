@@ -30,15 +30,15 @@ int quick_select(int A[], int n, int k) {
   if (n <= 5) {
     return bubble(A, n, k);
   } else {
-    int Aa[N];
+    int Aa[N / 5 + 1];
     for (i = 0; i < n / 5; i++) {
       Aa[i] = bubble(A + i * 5, 5, 2);
     }
-    pivot = quick_select(Aa, n / 5, n / 10);
-    int pivotindex;
+    Aa[n / 5] = bubble(A + n / 5, n % 5, (n % 5) / 2);
+    
+    pivot = quick_select(Aa, n / 5 + 1, n / 10);
     for (i = 0; i < n; i++) {
       if (A[i] == pivot) {
-        pivotindex = i;
         break;
       }
     }
