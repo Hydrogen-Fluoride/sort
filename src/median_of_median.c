@@ -30,7 +30,7 @@ int quick_select(int A[], int n, int k) {
   if (n <= 5) {
     return bubble(A, n, k);
   } else {
-    int Aa[(N - 4) / 5];
+    int Aa[(N + 4) / 5];
     for (i = 0; i < n / 5; i++) {
       Aa[i] = bubble(A + i * 5, 5, 2);
     }
